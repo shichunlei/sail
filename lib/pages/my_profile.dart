@@ -101,9 +101,9 @@ class AccountWidget extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.only(bottom: 16),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text(
                   "账户",
                   style: TextStyle(
@@ -119,9 +119,9 @@ class AccountWidget extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 16),
             child: InkWell(
               onTap: () => onWebLinkTap("个人中心", '/profile'),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     "🙍 个人中心",
                     style: TextStyle(
@@ -137,9 +137,9 @@ class AccountWidget extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 16),
             child: InkWell(
               onTap: () => onWebLinkTap("我的工单", "/ticket"),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     "🎫 我的工单",
                     style: TextStyle(
@@ -155,9 +155,9 @@ class AccountWidget extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 16),
             child: InkWell(
               onTap: () => onWebLinkTap("流量明细", "traffic"),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     "🔖 流量明细",
                     style: TextStyle(
@@ -189,9 +189,9 @@ class FinanceWidget extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.only(bottom: 16),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text(
                   "财务",
                   style: TextStyle(
@@ -207,9 +207,9 @@ class FinanceWidget extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 16),
             child: InkWell(
               onTap: () => onWebLinkTap("我的订单", "/order"),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     "💳 我的订单",
                     style: TextStyle(
@@ -225,9 +225,9 @@ class FinanceWidget extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 16),
             child: InkWell(
               onTap: () => onWebLinkTap("我的邀请", "/invite"),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     "🫲 我的邀请",
                     style: TextStyle(

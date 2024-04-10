@@ -61,14 +61,14 @@ class AppModel extends BaseModel {
   }
 
   void getStatus() async {
-    vpnStatus = await vpnManager.getStatus();
+    bool state = await vpnManager.getStatus();
 
-    if (vpnStatus == VpnStatus.connected) {
+    if (state) {
       isOn = true;
 
       getConnectedDate();
       notifyListeners();
-    } else if (vpnStatus == VpnStatus.disconnected) {
+    } else {
       isOn = false;
       notifyListeners();
     }
@@ -148,11 +148,7 @@ class AppModel extends BaseModel {
     }
 
     if (actors.isNotEmpty) {
-      proxyGroups.add(ProxyGroup(
-          tag: "UrlTest",
-          protocol: 'url-test',
-          actors: actors,
-          checkInterval: 600));
+      proxyGroups.add(ProxyGroup(tag: "UrlTest", protocol: 'url-test', actors: actors, checkInterval: 600));
     }
 
     if (serverModel.selectServerEntity != null) {

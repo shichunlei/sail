@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:sail/constant/app_strings.dart';
+import 'package:sail/constant/app_urls.dart';
 import 'package:sail/router/application.dart';
 import 'package:sail/router/routers.dart';
 import 'package:sail/utils/common_util.dart';
@@ -11,10 +12,8 @@ class HttpUtil {
   late Dio dio;
 
   HttpUtil() {
-    BaseOptions options = BaseOptions(
-      connectTimeout: 10000,
-      receiveTimeout: 10000,
-    );
+    BaseOptions options = BaseOptions(baseUrl: AppUrls.baseApiUrl,
+        connectTimeout: const Duration(milliseconds: 10000), receiveTimeout: const Duration(milliseconds: 10000));
     dio = Dio(options);
     dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) async {
       print("========================请求数据===================");
@@ -48,8 +47,8 @@ class HttpUtil {
           Application.navigatorKey.currentState?.pushNamed(Routers.login);
         }
 
-        return handler
-            .reject(DioError(requestOptions: response.requestOptions, response: response, type: DioErrorType.response));
+        return handler.reject(DioException(
+            requestOptions: response.requestOptions, response: response, type: DioExceptionType.badResponse));
       }
 
       return handler.next(response);
@@ -88,36 +87,6 @@ class HttpUtil {
       response = await dio.post(url, options: options);
     } else {
       response = await dio.post(url);
-    }
-    return response.data;
-  }
-
-  //put请求
-  Future put(String url, {Map<String, dynamic>? parameters, Options? options}) async {
-    Response response;
-    if (parameters != null && options != null) {
-      response = await dio.put(url, data: parameters, options: options);
-    } else if (parameters != null && options == null) {
-      response = await dio.put(url, data: parameters);
-    } else if (parameters == null && options != null) {
-      response = await dio.put(url, options: options);
-    } else {
-      response = await dio.put(url);
-    }
-    return response.data;
-  }
-
-  //delete请求
-  Future delete(String url, {Map<String, dynamic>? parameters, Options? options}) async {
-    Response response;
-    if (parameters != null && options != null) {
-      response = await dio.delete(url, data: parameters, options: options);
-    } else if (parameters != null && options == null) {
-      response = await dio.delete(url, data: parameters);
-    } else if (parameters == null && options != null) {
-      response = await dio.delete(url, options: options);
-    } else {
-      response = await dio.delete(url);
     }
     return response.data;
   }

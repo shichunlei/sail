@@ -66,7 +66,7 @@ class ConnectionStatsState extends State<ConnectionStats> {
           child: TextButton(
               onPressed: () => _userModel.checkHasLogin(context, () => NavigatorUtil.goServerList(context)),
               child:
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
+              const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Icon(Icons.map,
                     color: AppColors.grayColor, size: 20),
                 Text("其他节点",

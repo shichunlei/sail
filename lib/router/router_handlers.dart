@@ -43,5 +43,5 @@ Handler webViewHandler = Handler(
     handlerFunc: (BuildContext? context, Map<String, List<String>> parameters) {
       var title = jsonDecode(parameters["titleName"]!.first);
       var url = jsonDecode(parameters["url"]!.first);
-      return WebViewWidget(name: title, url: url);
+      return WebViewPage(name: title, url: url);
     });

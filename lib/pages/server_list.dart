@@ -5,7 +5,6 @@ import 'package:sail/constant/app_colors.dart';
 import 'package:sail/models/app_model.dart';
 import 'package:sail/models/server_model.dart';
 import 'package:flutter/material.dart';
-import 'package:sail/utils/common_util.dart';
 
 class ServerListPage extends StatefulWidget {
   const ServerListPage({Key? key}) : super(key: key);
@@ -185,7 +184,7 @@ class ServerListPageState extends State<ServerListPage> with AutomaticKeepAliveC
                       children: [
                         Text(
                           _serverModel.serverEntityList[index].name,
-                          style: Theme.of(context).textTheme.bodyText1,
+                          style: Theme.of(context).textTheme.bodyLarge,
                         ),
                         const SizedBox(
                           width: 15,

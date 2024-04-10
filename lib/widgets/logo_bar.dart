@@ -66,7 +66,7 @@ class LogoBar extends StatelessWidget {
                     padding: EdgeInsets.symmetric(
                         vertical: ScreenUtil().setWidth(10), horizontal: ScreenUtil().setWidth(30)),
                     child: Text(
-                      userSubscribeModel?.userSubscribeEntity?.email ?? "欢迎光临",
+                      userSubscribeModel.userSubscribeEntity?.email ?? "欢迎光临",
                       style:
                           TextStyle(fontSize: ScreenUtil().setSp(36), color: Colors.white, fontWeight: FontWeight.w500),
                     ),

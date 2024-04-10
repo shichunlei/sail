@@ -15,18 +15,17 @@ enum VpnStatus {
 }
 
 class VpnManager {
-  Future<VpnStatus> getStatus() async {
+  Future<bool> getStatus() async {
     // Native channel
     const platform = MethodChannel("com.sail_tunnel.sail/vpn_manager");
-    int result;
+    bool result;
     try {
       result = await platform.invokeMethod("getStatus");
     } on PlatformException catch (e) {
       print(e.toString());
-
-      rethrow;
+      result = false;
     }
-    return VpnStatus.values.firstWhere((e) => e.code == result);
+    return result;
   }
 
   Future<DateTime> getConnectedDate() async {
